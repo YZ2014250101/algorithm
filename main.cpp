@@ -1,17 +1,17 @@
-#include"kmp.h"
-#include <iostream>
-#include<string>
-int main()
-{
-    std::string s = "abacabac";
-    std::string t = "abac";
-    int next[100];
-    get_next(t, next);
+#include<iostream>
+#include"m_Sort.h"
+using namespace std;
 
-    for (int k = 0; k < t.size()+1; k++) {
-        std::cout << next[k] << " ";
-    }
-    int pos = myIndex_KMP(s, t, next);
-    std::cout << "\npos = " << pos << std::endl;
+int main() { 
+    int a1[] = { 0,2,14,3,3,5,7,1,6,6,6 };
+    int n1 = sizeof(a1) / sizeof(a1[0]);
+    printf("普通随机数据:\n排序前: ");
+    printArray(a1, n1);
+    m_quick_sort(a1, 0, n1-1);
+    printf("排序后: ");
+    printArray(a1, n1);
+    printf("\n");
+
+
     return 0;
 }
